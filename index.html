@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Photography Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>AI Photography Prompt Generator</h1>
+            <p>Create professional photography prompts with intelligent guidance and grouped controls</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel - Controls -->
+            <div class="controls-panel">
+                <!-- Basic Elements Section -->
+                <section class="section">
+                    <h2>Basic Elements</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label">
+                            Subject
+                            <button class="help-icon" data-help="subject">?</button>
+                        </label>
+                        <input type="text" class="form-control" id="subject" placeholder="e.g., Portrait of a young woman">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Context
+                            <button class="help-icon" data-help="context">?</button>
+                        </label>
+                        <input type="text" class="form-control" id="context" placeholder="e.g., Golden hour lighting, urban setting, professional headshot session">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Additional Descriptors
+                            <button class="help-icon" data-help="descriptors">?</button>
+                        </label>
+                        <textarea class="form-control" id="descriptors" rows="3" placeholder="e.g., Confident expression, flowing hair, casual attire"></textarea>
+                    </div>
+                </section>
+
+                <!-- Attributes Section -->
+                <section class="section">
+                    <h2>Attributes</h2>
+                    
+                    <!-- Physical Attribute Elements (Human) -->
+                    <div class="attribute-group">
+                        <h3>Physical Attribute Elements (Human)</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Height
+                                <button class="help-icon" data-help="physical_attributes">?</button>
+                            </label>
+                            <select class="form-control" id="height">
+                                <option value="">None</option>
+                                <option value="Tall">Tall</option>
+                                <option value="Average height">Average height</option>
+                                <option value="Short">Short</option>
+                                <option value="Petite">Petite</option>
+                                <option value="Towering">Towering</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="height-other" placeholder="Enter custom height">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Build</label>
+                            <select class="form-control" id="build">
+                                <option value="">None</option>
+                                <option value="Slim">Slim</option>
+                                <option value="Athletic">Athletic</option>
+                                <option value="Muscular">Muscular</option>
+                                <option value="Curvy">Curvy</option>
+                                <option value="Heavy-set">Heavy-set</option>
+                                <option value="Lean">Lean</option>
+                                <option value="Stocky">Stocky</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="build-other" placeholder="Enter custom build">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Skin Tone</label>
+                            <select class="form-control" id="skin-tone">
+                                <option value="">None</option>
+                                <option value="Fair">Fair</option>
+                                <option value="Olive">Olive</option>
+                                <option value="Tan">Tan</option>
+                                <option value="Dark">Dark</option>
+                                <option value="Pale">Pale</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Deep">Deep</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="skin-tone-other" placeholder="Enter custom skin tone">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Age Appearance</label>
+                            <select class="form-control" id="age-appearance">
+                                <option value="">None</option>
+                                <option value="Young">Young</option>
+                                <option value="Middle-aged">Middle-aged</option>
+                                <option value="Elderly">Elderly</option>
+                                <option value="Teen">Teen</option>
+                                <option value="Child">Child</option>
+                                <option value="Senior">Senior</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="age-appearance-other" placeholder="Enter custom age appearance">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Posture</label>
+                            <select class="form-control" id="posture">
+                                <option value="">None</option>
+                                <option value="Upright">Upright</option>
+                                <option value="Relaxed">Relaxed</option>
+                                <option value="Confident">Confident</option>
+                                <option value="Slouched">Slouched</option>
+                                <option value="Elegant">Elegant</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="posture-other" placeholder="Enter custom posture">
+                        </div>
+                    </div>
+
+                    <!-- Facial Reactions and Facial Features -->
+                    <div class="attribute-group">
+                        <h3>Facial Reactions and Facial Features</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Expression
+                                <button class="help-icon" data-help="facial_features">?</button>
+                            </label>
+                            <select class="form-control" id="expression">
+                                <option value="">None</option>
+                                <option value="Smiling">Smiling</option>
+                                <option value="Serious">Serious</option>
+                                <option value="Laughing">Laughing</option>
+                                <option value="Contemplative">Contemplative</option>
+                                <option value="Surprised">Surprised</option>
+                                <option value="Focused">Focused</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="expression-other" placeholder="Enter custom expression">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Eyes</label>
+                            <select class="form-control" id="eyes">
+                                <option value="">None</option>
+                                <option value="Bright eyes">Bright eyes</option>
+                                <option value="Deep-set eyes">Deep-set eyes</option>
+                                <option value="Almond eyes">Almond eyes</option>
+                                <option value="Round eyes">Round eyes</option>
+                                <option value="Piercing gaze">Piercing gaze</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="eyes-other" placeholder="Enter custom eyes description">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Eyebrows</label>
+                            <select class="form-control" id="eyebrows">
+                                <option value="">None</option>
+                                <option value="Thick eyebrows">Thick eyebrows</option>
+                                <option value="Arched eyebrows">Arched eyebrows</option>
+                                <option value="Straight eyebrows">Straight eyebrows</option>
+                                <option value="Bushy eyebrows">Bushy eyebrows</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="eyebrows-other" placeholder="Enter custom eyebrows description">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Nose</label>
+                            <select class="form-control" id="nose">
+                                <option value="">None</option>
+                                <option value="Straight nose">Straight nose</option>
+                                <option value="Button nose">Button nose</option>
+                                <option value="Aquiline nose">Aquiline nose</option>
+                                <option value="Small nose">Small nose</option>
+                                <option value="Prominent nose">Prominent nose</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="nose-other" placeholder="Enter custom nose description">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Jawline</label>
+                            <select class="form-control" id="jawline">
+                                <option value="">None</option>
+                                <option value="Strong jawline">Strong jawline</option>
+                                <option value="Soft jawline">Soft jawline</option>
+                                <option value="Angular jawline">Angular jawline</option>
+                                <option value="Rounded jawline">Rounded jawline</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="jawline-other" placeholder="Enter custom jawline description">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Lips</label>
+                            <select class="form-control" id="lips">
+                                <option value="">None</option>
+                                <option value="Full lips">Full lips</option>
+                                <option value="Thin lips">Thin lips</option>
+                                <option value="Curved lips">Curved lips</option>
+                                <option value="Natural lips">Natural lips</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="lips-other" placeholder="Enter custom lips description">
+                        </div>
+                    </div>
+
+                    <!-- Physical Features -->
+                    <div class="attribute-group">
+                        <h3>Physical Features</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Hair
+                                <button class="help-icon" data-help="physical_features">?</button>
+                            </label>
+                            <select class="form-control" id="hair">
+                                <option value="">None</option>
+                                <option value="Long hair">Long hair</option>
+                                <option value="Short hair">Short hair</option>
+                                <option value="Curly hair">Curly hair</option>
+                                <option value="Straight hair">Straight hair</option>
+                                <option value="Wavy hair">Wavy hair</option>
+                                <option value="Bald">Bald</option>
+                                <option value="Ponytail">Ponytail</option>
+                                <option value="Braided">Braided</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="hair-other" placeholder="Enter custom hair description">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Hair Color</label>
+                            <select class="form-control" id="hair-color">
+                                <option value="">None</option>
+                                <option value="Blonde">Blonde</option>
+                                <option value="Brunette">Brunette</option>
+                                <option value="Black hair">Black hair</option>
+                                <option value="Red hair">Red hair</option>
+                                <option value="Gray hair">Gray hair</option>
+                                <option value="Silver hair">Silver hair</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="hair-color-other" placeholder="Enter custom hair color">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Facial Hair</label>
+                            <select class="form-control" id="facial-hair">
+                                <option value="">None</option>
+                                <option value="Clean shaven">Clean shaven</option>
+                                <option value="Beard">Beard</option>
+                                <option value="Mustache">Mustache</option>
+                                <option value="Goatee">Goatee</option>
+                                <option value="Stubble">Stubble</option>
+                                <option value="Full beard">Full beard</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="facial-hair-other" placeholder="Enter custom facial hair">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Accessories</label>
+                            <select class="form-control" id="accessories">
+                                <option value="">None</option>
+                                <option value="Glasses">Glasses</option>
+                                <option value="Sunglasses">Sunglasses</option>
+                                <option value="Hat">Hat</option>
+                                <option value="Earrings">Earrings</option>
+                                <option value="Necklace">Necklace</option>
+                                <option value="Watch">Watch</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="accessories-other" placeholder="Enter custom accessories">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Clothing Style</label>
+                            <select class="form-control" id="clothing-style">
+                                <option value="">None</option>
+                                <option value="Casual">Casual</option>
+                                <option value="Formal">Formal</option>
+                                <option value="Business">Business</option>
+                                <option value="Artistic">Artistic</option>
+                                <option value="Vintage">Vintage</option>
+                                <option value="Modern">Modern</option>
+                                <option value="Bohemian">Bohemian</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="clothing-style-other" placeholder="Enter custom clothing style">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Body Art</label>
+                            <select class="form-control" id="body-art">
+                                <option value="">None</option>
+                                <option value="Tattoos">Tattoos</option>
+                                <option value="Piercings">Piercings</option>
+                                <option value="Scars">Scars</option>
+                                <option value="Birthmarks">Birthmarks</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="body-art-other" placeholder="Enter custom body art">
+                        </div>
+                    </div>
+
+                    <!-- Environmental Attributes / Scenes -->
+                    <div class="attribute-group">
+                        <h3>Environmental Attributes / Scenes</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Indoor Scenes
+                                <button class="help-icon" data-help="environmental_attributes">?</button>
+                            </label>
+                            <select class="form-control" id="indoor-scenes">
+                                <option value="">None</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Home interior">Home interior</option>
+                                <option value="Office">Office</option>
+                                <option value="Café">Café</option>
+                                <option value="Restaurant">Restaurant</option>
+                                <option value="Library">Library</option>
+                                <option value="Gallery">Gallery</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="indoor-scenes-other" placeholder="Enter custom indoor scene">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Outdoor Scenes</label>
+                            <select class="form-control" id="outdoor-scenes">
+                                <option value="">None</option>
+                                <option value="Beach">Beach</option>
+                                <option value="Forest">Forest</option>
+                                <option value="Mountain">Mountain</option>
+                                <option value="City street">City street</option>
+                                <option value="Park">Park</option>
+                                <option value="Garden">Garden</option>
+                                <option value="Rooftop">Rooftop</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="outdoor-scenes-other" placeholder="Enter custom outdoor scene">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Urban Settings</label>
+                            <select class="form-control" id="urban-settings">
+                                <option value="">None</option>
+                                <option value="Downtown">Downtown</option>
+                                <option value="Alley">Alley</option>
+                                <option value="Bridge">Bridge</option>
+                                <option value="Subway">Subway</option>
+                                <option value="Market">Market</option>
+                                <option value="Plaza">Plaza</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="urban-settings-other" placeholder="Enter custom urban setting">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Natural Settings</label>
+                            <select class="form-control" id="natural-settings">
+                                <option value="">None</option>
+                                <option value="Lakeside">Lakeside</option>
+                                <option value="Desert">Desert</option>
+                                <option value="Field">Field</option>
+                                <option value="Cliff">Cliff</option>
+                                <option value="Waterfall">Waterfall</option>
+                                <option value="Meadow">Meadow</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="natural-settings-other" placeholder="Enter custom natural setting">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Architectural</label>
+                            <select class="form-control" id="architectural">
+                                <option value="">None</option>
+                                <option value="Gothic">Gothic</option>
+                                <option value="Modern">Modern</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Rustic">Rustic</option>
+                                <option value="Minimalist">Minimalist</option>
+                                <option value="Classical">Classical</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" class="form-control other-input hidden" id="architectural-other" placeholder="Enter custom architecture style">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Elements Section -->
+                <section class="section">
+                    <h2>Technical Elements</h2>
+
+                    <!-- Camera Selection -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            Camera Selection
+                            <button class="help-icon" data-help="camera_selection">?</button>
+                        </label>
+                        <select class="form-control" id="camera-brand">
+                            <option value="">None</option>
+                            <option value="Canon">Canon</option>
+                            <option value="Nikon">Nikon</option>
+                            <option value="Sony">Sony</option>
+                            <option value="Fujifilm">Fujifilm</option>
+                            <option value="Panasonic">Panasonic</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="camera-brand-other" placeholder="Enter custom camera brand">
+                    </div>
+
+                    <div class="form-group" id="camera-model-group" style="display: none;">
+                        <label class="form-label">Camera Model</label>
+                        <select class="form-control" id="camera-model">
+                            <option value="">None</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="camera-model-other" placeholder="Enter custom camera model">
+                    </div>
+
+                    <!-- Aperture Settings -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            Aperture Settings
+                            <button class="help-icon" data-help="aperture">?</button>
+                        </label>
+                        <select class="form-control" id="aperture-category">
+                            <option value="">None</option>
+                            <option value="Wide Aperture">Wide Aperture (f/1.4-f/2.8)</option>
+                            <option value="Standard Aperture">Standard Aperture (f/4-f/5.6)</option>
+                            <option value="Narrow Aperture">Narrow Aperture (f/8-f/16)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="aperture-category-other" placeholder="Enter custom aperture setting">
+                    </div>
+
+                    <div class="form-group" id="aperture-value-group" style="display: none;">
+                        <label class="form-label">Specific Aperture</label>
+                        <select class="form-control" id="aperture-value">
+                            <option value="">None</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="aperture-value-other" placeholder="Enter custom aperture value">
+                    </div>
+
+                    <!-- Lighting Conditions -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            Lighting Conditions
+                            <button class="help-icon" data-help="lighting">?</button>
+                        </label>
+                        <select class="form-control" id="lighting-category">
+                            <option value="">None</option>
+                            <option value="Indoor">Indoor Lighting</option>
+                            <option value="Outdoor">Outdoor Lighting</option>
+                            <option value="Natural">Natural Lighting</option>
+                            <option value="Creative">Creative Lighting</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="lighting-category-other" placeholder="Enter custom lighting category">
+                    </div>
+
+                    <div class="form-group" id="lighting-option-group" style="display: none;">
+                        <label class="form-label">Specific Lighting</label>
+                        <select class="form-control" id="lighting-option">
+                            <option value="">None</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="lighting-option-other" placeholder="Enter custom lighting option">
+                    </div>
+                </section>
+
+                <!-- Style & Mood Section -->
+                <section class="section">
+                    <h2>Style & Mood</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Photographic Style
+                            <button class="help-icon" data-help="style_mood">?</button>
+                        </label>
+                        <select class="form-control" id="photo-style">
+                            <option value="">None</option>
+                            <option value="Portrait">Portrait</option>
+                            <option value="Landscape">Landscape</option>
+                            <option value="Street">Street</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Fine Art">Fine Art</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="photo-style-other" placeholder="Enter custom photographic style">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Artistic Mood
+                            <button class="help-icon" data-help="artistic_mood">?</button>
+                        </label>
+                        <select class="form-control" id="artistic-mood">
+                            <option value="">None</option>
+                            <option value="Dramatic">Dramatic</option>
+                            <option value="Soft">Soft</option>
+                            <option value="Vintage">Vintage</option>
+                            <option value="Modern">Modern</option>
+                            <option value="Cinematic">Cinematic</option>
+                            <option value="Ethereal">Ethereal</option>
+                            <option value="Minimalist">Minimalist</option>
+                            <option value="Bold">Bold</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="artistic-mood-other" placeholder="Enter custom artistic mood">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Color Treatment
+                            <button class="help-icon" data-help="color_treatment">?</button>
+                        </label>
+                        <select class="form-control" id="color-treatment">
+                            <option value="">None</option>
+                            <option value="Warm tones">Warm tones</option>
+                            <option value="Cool tones">Cool tones</option>
+                            <option value="Monochrome">Monochrome</option>
+                            <option value="High contrast">High contrast</option>
+                            <option value="Muted colors">Muted colors</option>
+                            <option value="Vibrant">Vibrant</option>
+                            <option value="Desaturated">Desaturated</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="color-treatment-other" placeholder="Enter custom color treatment">
+                    </div>
+                </section>
+
+                <!-- Composition Styles Section -->
+                <section class="section">
+                    <h2>Composition Styles</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Classic Techniques
+                            <button class="help-icon" data-help="composition">?</button>
+                        </label>
+                        <select class="form-control" id="classic-composition">
+                            <option value="">None</option>
+                            <option value="Rule of thirds">Rule of thirds</option>
+                            <option value="Golden ratio">Golden ratio</option>
+                            <option value="Symmetry">Symmetry</option>
+                            <option value="Leading lines">Leading lines</option>
+                            <option value="Balance">Balance</option>
+                            <option value="Framing">Framing</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="classic-composition-other" placeholder="Enter custom classic technique">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Advanced Techniques
+                            <button class="help-icon" data-help="advanced_composition">?</button>
+                        </label>
+                        <select class="form-control" id="advanced-composition">
+                            <option value="">None</option>
+                            <option value="Negative space">Negative space</option>
+                            <option value="Depth of field">Depth of field</option>
+                            <option value="Layering">Layering</option>
+                            <option value="Patterns">Patterns</option>
+                            <option value="Textures">Textures</option>
+                            <option value="Juxtaposition">Juxtaposition</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="advanced-composition-other" placeholder="Enter custom advanced technique">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Creative Angles
+                            <button class="help-icon" data-help="creative_angles">?</button>
+                        </label>
+                        <select class="form-control" id="creative-angles">
+                            <option value="">None</option>
+                            <option value="Low angle">Low angle</option>
+                            <option value="High angle">High angle</option>
+                            <option value="Dutch angle">Dutch angle</option>
+                            <option value="Close-up">Close-up</option>
+                            <option value="Wide shot">Wide shot</option>
+                            <option value="Bird's eye view">Bird's eye view</option>
+                            <option value="Worm's eye view">Worm's eye view</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="creative-angles-other" placeholder="Enter custom creative angle">
+                    </div>
+                </section>
+
+                <!-- Color & Film Enhancement Section -->
+                <section class="section color-film-section">
+                    <h2>Color & Film Enhancement</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Color Template
+                            <button class="help-icon" data-help="color_template">?</button>
+                        </label>
+                        <select class="form-control" id="color-template">
+                            <option value="">None</option>
+                            <option value="Teal & Orange">Teal & Orange</option>
+                            <option value="Vintage Sepia">Vintage Sepia</option>
+                            <option value="Pastel Dream">Pastel Dream</option>
+                            <option value="Bold Vibrant">Bold Vibrant</option>
+                            <option value="Coastal Serenity">Coastal Serenity</option>
+                            <option value="Urban Monochrome">Urban Monochrome</option>
+                            <option value="Mystical Twilight">Mystical Twilight</option>
+                            <option value="Warm & Moody">Warm & Moody</option>
+                            <option value="Cool Cyan">Cool Cyan</option>
+                            <option value="Black & White Classic">Black & White Classic</option>
+                            <option value="Retro Muted">Retro Muted</option>
+                            <option value="Hollywood Blockbuster">Hollywood Blockbuster</option>
+                            <option value="Red & Green Contrast">Red & Green Contrast</option>
+                            <option value="Cinematic Blue">Cinematic Blue</option>
+                            <option value="Golden Hour Glow">Golden Hour Glow</option>
+                            <option value="Earth Tones">Earth Tones</option>
+                            <option value="Neon Cyberpunk">Neon Cyberpunk</option>
+                            <option value="Desert Warmth">Desert Warmth</option>
+                            <option value="Forest Greens">Forest Greens</option>
+                            <option value="Night Film Noir">Night Film Noir</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="color-template-other" placeholder="Enter custom color template">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Film Emulation
+                            <button class="help-icon" data-help="film_emulation">?</button>
+                        </label>
+                        <select class="form-control" id="film-emulation">
+                            <option value="">None</option>
+                            <option value="Kodak Portra 400">Kodak Portra 400</option>
+                            <option value="Kodak Portra 160">Kodak Portra 160</option>
+                            <option value="Kodak Portra 800">Kodak Portra 800</option>
+                            <option value="Kodak Ektar 100">Kodak Ektar 100</option>
+                            <option value="Kodak Gold 200">Kodak Gold 200</option>
+                            <option value="Kodak Ultramax 400">Kodak Ultramax 400</option>
+                            <option value="Kodak ColorPlus 200">Kodak ColorPlus 200</option>
+                            <option value="Kodak Tri-X 400">Kodak Tri-X 400</option>
+                            <option value="Kodak T-Max 100">Kodak T-Max 100</option>
+                            <option value="Kodak T-Max 400">Kodak T-Max 400</option>
+                            <option value="Kodak Vision3 250D">Kodak Vision3 250D</option>
+                            <option value="Cinestill 800T">Cinestill 800T</option>
+                            <option value="Cinestill 50D">Cinestill 50D</option>
+                            <option value="Fuji Velvia 50">Fuji Velvia 50</option>
+                            <option value="Fuji Velvia 100">Fuji Velvia 100</option>
+                            <option value="Fuji Provia 100F">Fuji Provia 100F</option>
+                            <option value="Fuji Astia 100F">Fuji Astia 100F</option>
+                            <option value="Fuji Superia 400">Fuji Superia 400</option>
+                            <option value="Fujicolor Pro 400H">Fujicolor Pro 400H</option>
+                            <option value="Fuji Neopan Acros 100">Fuji Neopan Acros 100</option>
+                            <option value="Fujicolor C200">Fujicolor C200</option>
+                            <option value="Agfa Vista 200">Agfa Vista 200</option>
+                            <option value="AgfaPhoto APX 100">AgfaPhoto APX 100</option>
+                            <option value="Ilford HP5 Plus 400">Ilford HP5 Plus 400</option>
+                            <option value="Ilford Delta 3200">Ilford Delta 3200</option>
+                            <option value="Ilford FP4 Plus 125">Ilford FP4 Plus 125</option>
+                            <option value="Lomography Color 100">Lomography Color 100</option>
+                            <option value="Lomochrome Purple">Lomochrome Purple</option>
+                            <option value="Polaroid 600">Polaroid 600</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="film-emulation-other" placeholder="Enter custom film emulation">
+                    </div>
+                </section>
+
+                <!-- Technical Parameters Section -->
+                <section class="section tech-params">
+                    <h2>Technical Parameters</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Guidance Scale: <span id="guidance-scale-value">7.5</span>
+                            <button class="help-icon" data-help="guidance_scale">?</button>
+                        </label>
+                        <input type="range" class="form-control slider" id="guidance-scale" min="1" max="30" step="0.5" value="7.5">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Inference Steps: <span id="inference-steps-value">50</span>
+                            <button class="help-icon" data-help="inference_steps">?</button>
+                        </label>
+                        <input type="range" class="form-control slider" id="inference-steps" min="10" max="150" step="1" value="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Resolution
+                            <button class="help-icon" data-help="resolution">?</button>
+                        </label>
+                        <select class="form-control" id="resolution">
+                            <option value="">None</option>
+                            <option value="512×512">512×512</option>
+                            <option value="512×768">512×768</option>
+                            <option value="768×512">768×512</option>
+                            <option value="768×768">768×768</option>
+                            <option value="1024×1024">1024×1024</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" class="form-control other-input hidden" id="resolution-other" placeholder="Enter custom resolution (e.g., 1200×800)">
+                    </div>
+                </section>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn--secondary" id="reset-btn">Reset All</button>
+                    <button class="btn btn--primary" id="generate-btn">Generate Prompt</button>
+                </div>
+            </div>
+
+            <!-- Right Panel - Generated Prompts (Sticky) -->
+            <div class="output-panel sticky-output">
+                <section class="section">
+                    <h2>Generated Prompt</h2>
+                    <div class="prompt-container">
+                        <textarea class="prompt-output" id="generated-prompt" readonly placeholder="Your generated prompt will appear here..."></textarea>
+                        <button class="btn btn--primary copy-btn" id="copy-btn-1">Copy Prompt</button>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Alternative Variation</h2>
+                    <div class="prompt-container">
+                        <textarea class="prompt-output" id="alternative-prompt" readonly placeholder="Alternative prompt variation will appear here..."></textarea>
+                        <button class="btn btn--primary copy-btn" id="copy-btn-2">Copy Alternative</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal hidden" id="help-modal">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Help Information</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-description"></div>
+                <div id="modal-use-cases"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="tooltip hidden" id="tooltip"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
