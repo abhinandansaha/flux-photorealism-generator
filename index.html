@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flux Photorealism Prompt Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">Flux Photorealism Prompt Generator</h1>
+                <p class="header-subtitle">Generate optimized prompts for ultra-realistic Flux AI images</p>
+            </div>
+        </header>
+
+        <!-- Main Form Section -->
+        <main class="main-content">
+            <div class="form-container">
+                <div class="form-columns">
+                    <!-- Left Column - Basic Elements -->
+                    <div class="form-column">
+                        <h2 class="section-title">Basic Elements</h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject <span class="help-icon" data-field="subject" data-tooltip="What is the main focus?"></span></label>
+                            <input type="text" id="subject" class="form-input" placeholder="e.g., A professional businesswoman">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="description">Description <span class="help-icon" data-field="description" data-tooltip="Add vivid details and context"></span></label>
+                            <textarea id="description" class="form-textarea" rows="3" placeholder="Detailed description of the subject..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="attributes">Attributes <span class="help-icon" data-field="attributes" data-tooltip="Specify appearance traits"></span></label>
+                            <select id="attributes" class="form-select">
+                                <option value="">Select attributes...</option>
+                            </select>
+                            <input type="text" id="attributes-other" class="form-input other-input hidden" placeholder="Enter custom attributes...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="composition">Composition <span class="help-icon" data-field="composition" data-tooltip="Affects scene balance and storytelling"></span></label>
+                            <select id="composition" class="form-select">
+                                <option value="">Select composition...</option>
+                            </select>
+                            <input type="text" id="composition-other" class="form-input other-input hidden" placeholder="Enter custom composition...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="camera-angles">Camera Angles <span class="help-icon" data-field="cameraAngles" data-tooltip="Select how the viewer sees the subject"></span></label>
+                            <select id="camera-angles" class="form-select">
+                                <option value="">Select camera angle...</option>
+                            </select>
+                            <input type="text" id="camera-angles-other" class="form-input other-input hidden" placeholder="Enter custom camera angle...">
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Technical Elements -->
+                    <div class="form-column">
+                        <h2 class="section-title">Technical Elements</h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="camera-model">Camera Model <span class="help-icon" data-field="cameraModels" data-tooltip="Real-world camera names lend authenticity"></span></label>
+                            <select id="camera-model" class="form-select">
+                                <option value="">Select camera model...</option>
+                            </select>
+                            <input type="text" id="camera-model-other" class="form-input other-input hidden" placeholder="Enter custom camera model...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="lens-type">Lens Type <span class="help-icon" data-field="lensTypes" data-tooltip="Focal length controls field of view and depth"></span></label>
+                            <select id="lens-type" class="form-select">
+                                <option value="">Select lens type...</option>
+                            </select>
+                            <input type="text" id="lens-type-other" class="form-input other-input hidden" placeholder="Enter custom lens type...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="camera-settings">Camera Settings <span class="help-icon" data-field="cameraSettings" data-tooltip="Aperture, ISO, shutter speed settings"></span></label>
+                            <select id="camera-settings" class="form-select">
+                                <option value="">Select camera settings...</option>
+                            </select>
+                            <input type="text" id="camera-settings-other" class="form-input other-input hidden" placeholder="Enter custom camera settings...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="lighting-type">Lighting Type <span class="help-icon" data-field="lightingTypes" data-tooltip="Defines mood and texture"></span></label>
+                            <select id="lighting-type" class="form-select">
+                                <option value="">Select lighting type...</option>
+                            </select>
+                            <input type="text" id="lighting-type-other" class="form-input other-input hidden" placeholder="Enter custom lighting type...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="style-mood">Style & Mood <span class="help-icon" data-field="styleMood" data-tooltip="Overall aesthetic direction"></span></label>
+                            <select id="style-mood" class="form-select">
+                                <option value="">Select style & mood...</option>
+                            </select>
+                            <input type="text" id="style-mood-other" class="form-input other-input hidden" placeholder="Enter custom style & mood...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parameters Section -->
+                <div class="parameters-section">
+                    <h2 class="section-title">Technical Parameters</h2>
+                    <div class="parameters-grid">
+                        <div class="parameter-group">
+                            <label class="form-label" for="guidance-scale">Guidance Scale: <span id="guidance-value">3.0</span> <span class="help-icon" data-field="guidanceScale" data-tooltip="Higher values enforce prompt adherence"></span></label>
+                            <input type="range" id="guidance-scale" class="form-slider" min="1.0" max="4.0" step="0.1" value="3.0">
+                        </div>
+
+                        <div class="parameter-group">
+                            <label class="form-label" for="inference-steps">Inference Steps: <span id="steps-value">40</span> <span class="help-icon" data-field="steps" data-tooltip="More steps = finer detail but slower generation"></span></label>
+                            <input type="range" id="inference-steps" class="form-slider" min="20" max="50" step="1" value="40">
+                        </div>
+
+                        <div class="parameter-group">
+                            <label class="form-label" for="resolution">Resolution <span class="help-icon" data-field="resolution" data-tooltip="Pixel dimensions affect detail and aspect ratio"></span></label>
+                            <select id="resolution" class="form-select">
+                                <option value="1024x1024">1024x1024 (Square)</option>
+                                <option value="1024x768">1024x768 (Landscape)</option>
+                                <option value="768x1024">768x1024 (Portrait)</option>
+                                <option value="1344x768">1344x768 (Wide Landscape)</option>
+                                <option value="768x1344">768x1344 (Tall Portrait)</option>
+                                <option value="1536x640">1536x640 (Ultra Wide)</option>
+                                <option value="640x1536">640x1536 (Ultra Tall)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="reset-btn" class="btn btn-secondary">Reset Form</button>
+                    <button id="export-btn" class="btn btn-secondary">Export Prompt</button>
+                </div>
+            </div>
+
+            <!-- Generated Prompt Section -->
+            <div class="prompt-section">
+                <div class="prompt-header">
+                    <h2 class="section-title">Generated Prompt</h2>
+                    <div class="prompt-stats">
+                        <span id="char-count">0</span> characters
+                    </div>
+                </div>
+                <div class="prompt-container">
+                    <textarea id="generated-prompt" class="prompt-textarea" readonly placeholder="Your optimized Flux prompt will appear here as you make selections..."></textarea>
+                    <button id="copy-btn" class="copy-btn" title="Copy to clipboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                        </svg>
+                        Copy
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Success Notification -->
+        <div id="notification" class="notification hidden">
+            <div class="notification-content">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="10"/>
+                </svg>
+                <span>Prompt copied to clipboard!</span>
+            </div>
+        </div>
+
+        <!-- Help Modal -->
+        <div id="helpModal" class="modal hidden">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="helpModalTitle">Help Guide</h3>
+                    <button class="close-modal" aria-label="Close modal">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="helpModalContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
